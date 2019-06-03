@@ -15,12 +15,13 @@ pipeline {
                 	echo "Multiline shell steps works too"
                     ls -la
                 '''
-            }
-        }
-        stage('Test') {
-            steps {
                 sh 'node --version'
             }
         }
+//        stage('Test') {
+//            steps {
+//                sh 'node --version'
+//            }
+//        }
     }
 }
