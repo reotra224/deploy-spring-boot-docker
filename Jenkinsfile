@@ -1,8 +1,10 @@
 pipeline {
     agent { 
-    	docker { 
-    		image 'maven:3.3.3' 
-    	}
+    	docker { image 'maven:3.3.3' }
+    }
+    
+    agent {
+        docker { image 'node:7-alpine' }
     }
     
     stages {
@@ -12,8 +14,13 @@ pipeline {
                 sh 'java -version'
                 sh '''
                 	echo "Multiline shell steps works too"
-                    ls -lah
+                    ls -la
                 '''
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'node --version'
             }
         }
     }
