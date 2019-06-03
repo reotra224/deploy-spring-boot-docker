@@ -10,6 +10,10 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh 'java -version'
+                sh '''
+                	echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
     }
